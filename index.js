@@ -12,7 +12,7 @@ function readFilesUtf8(files, options, callback) {
 
   options = options || {};
   callback = callback || function() {};
-  if(options.encoding === undefined) { options.encoding || 'utf-8'; }
+  if(options.encoding === undefined) { options.encoding = 'utf-8'; }
   if(_.isString(files)) { files = [ files ]; }
 
   async.map(files, (function(f, cb) { fs.readFile(f, options, cb) }), callback)
